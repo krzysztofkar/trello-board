@@ -1,0 +1,86 @@
+h3 {
+    color: #26a69a;
+}
+h4 {
+    color: #ee6e73;
+}
+.input-field label {
+    color: #26a69a;
+    font-size: 1.2rem;
+  }
+
+body{
+    background-image: url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card.blue-grey.darken-1{
+    opacity: 0.9;
+}
+
+p.task-description{
+    font-size: 16px;
+}
+
+p.task-deadline{
+    font-size: 10px;
+}
+
+.app {
+ display: flex;
+ flex-flow: column;
+ height: 100vh;   
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.lists {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.lists .list span{
+    font-size: 20px;
+}
+
+.lists .list>span{
+    color: #26a69a;
+    font-weight: 700;
+}
+.lists .list {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    background-color: rgba(38, 166, 154, 0.1);
+    margin: 0 15px;
+    padding: 8px;
+    transition: all 0.2s linear;
+    border-radius: 10px;
+}
+
+.lists .list .list-item { 
+    border-radius: 10px;
+    margin: 4px;
+}
+
+.card .card-content{
+    padding: 10px;
+}
+
+.card .card-action:last-child {
+    border-radius: 10px;
+}
+
+.card .card-content .card-title {
+    font-weight: 500;
+}

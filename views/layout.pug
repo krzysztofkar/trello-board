@@ -1,0 +1,27 @@
+html  
+ head
+   title ToDo List
+   link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
+   link(rel="stylesheet", type="text/css", href="/css/style.css")
+   script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+ body
+  script 
+   include drag-drop.js
+  nav 
+   div.nav-wrapper
+    a.brand-logo.center(href='/') My tasks
+    ul.right.hige-on-med-and-down(id="nav-mobile")
+     li
+      a(href="/api/tasks") All Tasks
+     li
+      a(href="/api/tasks/add") Add Task
+     li 
+      a(href="/api/login") Login
+     li
+      a(href="/api/register") Register
+     li 
+      a(href="/api/logout") Logout
+  .container
+   block content
+
+
