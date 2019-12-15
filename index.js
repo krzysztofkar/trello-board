@@ -1,4 +1,3 @@
-const Joi = require("joi");
 const express = require("express");
 const mongoose = require("mongoose");
 const login = require("./routes/login");
@@ -45,6 +44,6 @@ app.use("/api/logout", logout);
 const port = process.env.PORT || 3333;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.render("layout.pug");
 });
