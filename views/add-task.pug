@@ -1,14 +1,17 @@
 extends layout.pug
 block content
- form.col.s12(action='/api/tasks', method='POST')
-  div.row
-   div.input-field.col.s12.l6
-    label(for="taskTitle") Task name
-    input.validate(type="text", id="taskTitle", name="taskTitle")
-   div.input-field.col.s12
-    label(for="taskDescription") Task description
-    input.validate(type="text", id="taskDescription", name="taskDescription")
-   div.input-field.col.s12
-    label(for="taskDeadline") Deadline (YYYY-MM-DD)
-    input.validate(type="text", id="taskDeadline", name="taskDeadline")  
-    button(type="submit", class="btn waves-effect waves-light") Add this task
+ if error 
+  h2 #{error}
+ else
+  form.col.s12(action='/api/tasks', method='POST')
+   div.row
+    div.input-field.col.s12.l6
+     label(for="taskTitle") Task name
+     input.validate(type="text", id="taskTitle", name="taskTitle")
+    div.input-field.col.s12
+     label(for="taskDescription") Task description
+     input.validate(type="text", id="taskDescription", name="taskDescription")
+    div.input-field.col.s12
+     label(for="taskDeadline") Deadline (YYYY-MM-DD)
+     input.validate(type="text", id="taskDeadline", name="taskDeadline")  
+     button(type="submit", class="btn waves-effect waves-light") Add this task

@@ -1,42 +1,45 @@
 extends layout.pug
 block content
- div.app
-  header 
-    h4 Current tasks
-  div.lists
-   div.list(id="ToDo") 
-    span To Do
-    each task in toDoTasks
-     - var taskID = `${task.id}`
-     div.list-item.card.blue-grey.darken-1(draggable="true", data-id=taskID)  
-      div.card-content.white-text 
-       span.card-title #{task.title}
-       p.task-description #{task.description}
-       hr 
-       p.task-deadline Due to: #{moment(task.deadlineAt).format("YYYY-MM-DD")}
-      div.card-action
-       a(href="/api/tasks/delete/" + taskID) Delete task
-   div.list(id="InProgress") 
-    span In progress 
-    each task in inProgressTasks
-     - var taskID = `${task.id}`
-     div.list-item.card.blue-grey.darken-1(draggable="true", data-id=taskID)
-      div.card-content.white-text 
-       span.card-title #{task.title}
-       p.task-description #{task.description}
-       hr 
-       p.task-deadline Due to: #{moment(task.deadlineAt).format("YYYY-MM-DD")}
-      div.card-action
-       a(href="/api/tasks/delete/" + taskID) Delete task
-   div.list(id="Done")
-    span Done
-    each task in doneTasks
-     - var taskID = `${task.id}`
-     div.list-item.card.blue-grey.darken-1(draggable="true", data-id=taskID)
-      div.card-content.white-text 
-       span.card-title #{task.title}
-       p.task-description #{task.description}
-       hr 
-       p.task-deadline Due to: #{moment(task.deadlineAt).format("YYYY-MM-DD")}
-      div.card-action
-       a(href="/api/tasks/delete/" + taskID) Delete task
+ if error
+  h2 #{error} 
+ else
+  div.app
+   header 
+     h4 Current tasks
+   div.lists
+    div.list(id="ToDo") 
+     span To Do
+     each task in toDoTasks
+      - var taskID = `${task.id}`
+      div.list-item.card.blue-grey.darken-1(draggable="true", data-id=taskID)  
+       div.card-content.white-text 
+        span.card-title #{task.title}
+        p.task-description #{task.description}
+        hr 
+        p.task-deadline Due to: #{moment(task.deadlineAt).format("YYYY-MM-DD")}
+       div.card-action
+        a(href="/api/tasks/delete/" + taskID) Delete task
+    div.list(id="InProgress") 
+     span In progress 
+     each task in inProgressTasks
+      - var taskID = `${task.id}`
+      div.list-item.card.blue-grey.darken-1(draggable="true", data-id=taskID)
+       div.card-content.white-text 
+        span.card-title #{task.title}
+        p.task-description #{task.description}
+        hr 
+        p.task-deadline Due to: #{moment(task.deadlineAt).format("YYYY-MM-DD")}
+       div.card-action
+        a(href="/api/tasks/delete/" + taskID) Delete task
+    div.list(id="Done")
+     span Done
+     each task in doneTasks
+      - var taskID = `${task.id}`
+      div.list-item.card.blue-grey.darken-1(draggable="true", data-id=taskID)
+       div.card-content.white-text 
+        span.card-title #{task.title}
+        p.task-description #{task.description}
+        hr 
+        p.task-deadline Due to: #{moment(task.deadlineAt).format("YYYY-MM-DD")}
+       div.card-action
+        a(href="/api/tasks/delete/" + taskID) Delete task
