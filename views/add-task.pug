@@ -1,9 +1,12 @@
 extends layout.pug
 block content
- if error 
+ if error
   h2 #{error}
  else
-  form.col.s12(action='/api/tasks', method='POST')
+  if errors
+   each error in errors 
+    h4 #{error.message}
+  form.col.s12(action='/api/tasks/add', method='POST')
    div.row
     div.input-field.col.s12.l6
      label(for="taskTitle") Task name

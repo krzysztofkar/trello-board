@@ -29,14 +29,20 @@ router.get("/add", auth, async (req, res) => {
   });
 });
 
-router.post("/", auth, async (req, res) => {
+router.post("/add", auth, async (req, res) => {
   const task = new Task({
     title: req.body.taskTitle,
     description: req.body.taskDescription,
     deadlineAt: req.body.taskDeadline
   });
-  await task.save();
-  res.redirect("/api/tasks");
+  try {
+    await task.save();
+    res.redirect("/api/tasks")
+  } catch (err) {
+    res.render("add-task.pug", {
+      errors: err.errors
+    });
+  }
 });
 
 router.put("/:id", auth, async (req, res) => {

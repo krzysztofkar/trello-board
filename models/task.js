@@ -1,9 +1,18 @@
 var mongoose = require("mongoose");
 
 var taskSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-  deadlineAt: Date,
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  deadlineAt: {
+    type: Date,
+    required: true
+  },
   createdAt: {
     type: Date,
     default: Date.now()
