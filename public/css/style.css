@@ -84,3 +84,7 @@ header {
 .card .card-content .card-title {
     font-weight: 500;
 }
+
+.container{
+    width: 90%;
+}

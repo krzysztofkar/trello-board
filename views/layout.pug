@@ -4,6 +4,7 @@ html
    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
    link(rel="stylesheet", type="text/css", href="/css/style.css")
    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+   link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
  body
   script 
    include drag-drop.js
@@ -23,5 +24,10 @@ html
       a(href="/api/logout") Logout
   .container
    block content
-
+    h3 Trello-like board for task management
+    br
+    h4 Create an account to start
+    br
+    div.video-container
+     iframe(width="600", height="480", src="https://www.youtube.com/embed/tVooja0Ta5I", frameborder="0", allowfullscreen)
 
