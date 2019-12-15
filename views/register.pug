@@ -1,5 +1,7 @@
 extends layout.pug
 block content 
+  if error 
+   h4 #{error}
   h3 Create new account
   form.col.s12(action='/api/register', method='POST')
     div.row
