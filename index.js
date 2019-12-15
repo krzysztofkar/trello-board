@@ -17,7 +17,7 @@ if (!config.get("jwtPrivateKey")) {
 }
 
 mongoose
-  .connect("mongodb://localhost/tasksDB", {
+  .connect(config.get("db"), {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
@@ -40,10 +40,10 @@ app.use("/api/login", login);
 app.use("/api/register", register);
 app.use("/api/tasks", tasks);
 app.use("/api/logout", logout);
-require('./startup/prod')(app);
+require("./startup/prod")(app);
 const port = process.env.PORT || 3333;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
-app.get("/", function (req, res) {
+app.get("/", function(req, res) {
   res.render("layout.pug");
 });
