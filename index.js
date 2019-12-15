@@ -40,7 +40,7 @@ app.use("/api/login", login);
 app.use("/api/register", register);
 app.use("/api/tasks", tasks);
 app.use("/api/logout", logout);
-
+require('./startup/prod')(app);
 const port = process.env.PORT || 3333;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
