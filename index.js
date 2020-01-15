@@ -33,6 +33,6 @@ require("./startup/prod")(app);
 const port = process.env.PORT || 3333;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
-app.get("/api/tasks", function (req, res) {
-  res.render("layout.pug");
+app.get("/", function (req, res) {
+  res.redirect('/api/tasks');
 });
