@@ -16,9 +16,11 @@ window.addEventListener("DOMContentLoaded", event => {
                 var xhr = new XMLHttpRequest();
                 xhr.open("PUT", "/api/tasks/" + item.dataset.id);
                 xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+                const tasksIDs = Array.from(item.parentNode.children).map(item => item.dataset.id).filter(item => item != null);
                 xhr.send(JSON.stringify({
                     taskID: item.dataset.id,
-                    status: item.parentElement.id
+                    status: item.parentElement.id,
+                    tasksIDs: tasksIDs,
                 }));
                 draggedItem.style.display = "block";
                 draggedItem = null;

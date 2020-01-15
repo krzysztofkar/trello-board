@@ -17,6 +17,10 @@ var taskSchema = new mongoose.Schema({
     type: Date,
     default: Date.now()
   },
+  position: {
+    type: Number,
+    default: 0
+  },
   status: {
     type: String,
     enum: ['ToDo', 'InProgress', 'Done'],

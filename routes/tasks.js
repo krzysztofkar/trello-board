@@ -6,13 +6,16 @@ const moment = require("moment");
 router.get("/", async (req, res) => {
   const toDoTasks = await Task.find({
     status: "ToDo"
+  }).sort({
+    position: 'ascending'
   });
   const inProgressTasks = await Task.find({
     status: "InProgress"
-  });
+  }).sort('position');
   const doneTasks = await Task.find({
     status: "Done"
-  });
+  }).sort('position');
+
   res.render("tasks.pug", {
     toDoTasks: toDoTasks,
     inProgressTasks: inProgressTasks,
@@ -47,6 +50,11 @@ router.post("/add", async (req, res) => {
 router.put("/:id", async (req, res) => {
   let task = await Task.findById(req.params.id);
   task.status = req.body.status;
+  for (let taskID of req.body.tasksIDs) {
+    let taskToChange = await Task.findById(taskID);
+    taskToChange.position = Array.from(req.body.tasksIDs).indexOf(taskID);
+    taskToChange.save();
+  }
   task.save();
 });
 
