@@ -10,24 +10,12 @@ html
    include drag-drop.js
   nav 
    div.nav-wrapper
-    a.brand-logo.center(href='/') My tasks
+    a.brand-logo.center(href='/api/tasks') My tasks
     ul.right.hige-on-med-and-down(id="nav-mobile")
      li
       a(href="/api/tasks") All Tasks
      li
       a(href="/api/tasks/add") Add Task
-     li 
-      a(href="/api/login") Login
-     li
-      a(href="/api/register") Register
-     li 
-      a(href="/api/logout") Logout
   .container
    block content
-    h3 Trello-like board for task management
-    br
-    h4 Create an account to start
-    br
-    div.video-container
-     iframe(width="600", height="480", src="https://www.youtube.com/embed/tVooja0Ta5I", frameborder="0", allowfullscreen)
 
