@@ -4,8 +4,24 @@ block content
   h2 #{error} 
  else
   div.app
-   header 
+   header.header-container
      h4 Current tasks
+     a.waves-effect.waves-light.btn.modal-trigger(href="#add-form") Add Task
+     div.modal(id="add-form")
+      div.modal-content
+       h4 Add new task
+       form.col.s12(action='/api/tasks/add', method='POST')
+        div.row
+         div.input-field.col.s12.l7
+          label(for="taskTitle")
+          input.validate(type="text", id="taskTitle", name="taskTitle", placeholder="Task title", required="", aria-required="true")
+         div.input-field.col.s12.l7
+          label(for="taskDescription")
+          input.validate(type="text", id="taskDescription", name="taskDescription", placeholder="Description", required="", aria-required="true")
+         div.input-field.col.s12.l7
+          label(for="taskDeadline")
+          input.datepicker(type="text", id="taskDeadline", name="taskDeadline", placeholder="Deadline", required="", aria-required="true")  
+          button(type="submit", class="btn waves-effect waves-light") Add this task
    div.lists
     div.list(id="ToDo") 
      span To Do

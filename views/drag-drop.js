@@ -2,6 +2,10 @@ window.addEventListener("DOMContentLoaded", event => {
     const list_items = document.querySelectorAll(".list-item");
     const lists = document.querySelectorAll(".list");
     let draggedItem = null;
+    var elems = document.querySelectorAll('.modal');
+    M.Modal.init(elems);
+    var elems = document.querySelectorAll('.datepicker');
+    M.Datepicker.init(elems);
 
     for (let i = 0; i < list_items.length; i++) {
         const item = list_items[i];
